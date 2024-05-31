@@ -1,0 +1,191 @@
+h1{
+    font-style:italic;
+    text-align:left;
+    padding: 10px;
+    position: relative;
+    background-color:#074483;
+    color:whitesmoke;
+    align-content: center;
+    height: 100px;
+    width: 1150px;
+    }
+
+    img{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 10px;        
+        right: 10px; 
+        border-radius:  10px; 
+       }
+
+h3{
+    font-style:italic;
+    text-align: left;
+    padding: 10px;
+    position: relative;
+    background-color:#074483;
+    color:whitesmoke;
+    align-content: center;
+    height: 30px;
+    
+
+
+
+}
+
+
+
+    #ob{
+         font-style:italic;
+        font-size: 12pt;
+        text-align:left;
+       
+        display:inline-block;
+        border-right:3px;
+        padding: 5px;
+        position:relative;
+        background-color:aliceblue;
+        color:black;
+        align-content:baseline;
+        width: 1150px;
+
+    }
+
+    p{
+    
+        font-style:italic;
+        font-size: 12pt;
+        text-align:center;
+       
+        display:inline-block;
+        border-right:3px;
+        padding: 5px;
+        position:relative;
+        background-color:#074483;
+        color:whitesmoke;
+        align-content:baseline;
+        width: 1150px;
+        height: 15px;
+    }
+    .error-message{
+    
+        color: red;
+        font-size: 12px;
+        display: none;
+    
+    }
+        
+    button{
+    
+        font-style:italic;
+        background-color:#074483;
+        text-align:center;
+        color:darkgrey;
+        border:#031f3a;
+        border-radius: 6px;
+        cursor: pointer;
+      
+        width: 35px;
+        height: 35px;
+        
+    }
+    
+    button:hover{
+    
+        background-color:#031f3a;
+    }
+    button:focus{
+    
+        outline: none;
+    }
+    .a {
+        font-style:italic;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        display: grid;
+        grid-template-columns:2fr 2fr;
+      }
+      .pac{
+        font-style:italic;
+        display:grid;
+        background-color:rgb(253, 227, 194);
+        grid-template-columns: 3fr 2fr 2fr 2fr;
+      }
+      .coluna{
+        font-style:italic;
+
+        text-align:left;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        display: grid;
+        grid-template-columns:3fr 3fr 3fr ;
+      
+      }
+      .s {
+        font-style:italic;
+        background-color:rgb(252, 229, 197);
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        display: grid;
+        grid-template-columns: 3fr 2fr 2fr;
+      }
+    
+    .container{
+        
+       
+        font-style:italic;
+        text-align: left;
+        padding: 10px;
+        background-color:rgb(236, 231, 225);
+        padding-top: 10;
+        position: relative;
+        width: 1150px;
+        height: 1150px;
+          } 
+    
+   
+    
+    input{
+        font-style:italic;
+        text-align:center;
+        background-color:darkgrey;
+        border-radius: 6px;
+        padding-top: 10;
+        padding: 10px;
+        border-right:5px;
+        width: 80px;
+    }
+    div{
+        font-style:italic;
+        font-size: 12pt;
+        border-left: 5px;
+        font-style:italic;
+        padding-top: 10px;
+        text-align:left;
+        padding: 10px;
+        
+    }
+    select{
+        font-style:italic;
+        text-align:center;
+        background-color:darkgrey;
+        border-radius: 6px;
+        padding: 10px;
+        padding-top: 10px;
+        border-right:10px;
+        width: 100px;
+    }
+    #tanque1,#tanque2,#tanque3,#soda1,#soda2{
+        font-style:italic;
+        width: 65px;
+        height: 10px;
+       
+    }
+

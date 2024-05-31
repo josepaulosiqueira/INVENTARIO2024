@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Elis</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+<form id="myForm">
+    <h1>Inventário de Produtos Químicos 2024 <img src="./image/imagem1.png" alt="Circular"></h1>
+
+    <div class="container">  
+        <div class="a">
+            <div>Data: <input type="date" placeholder="Data" id="data" name="data"/></div>
+            <div>Semana: <input type="number" placeholder="Semana" id="semana" name="semana"/></div>
+        </div> 
+
+        <h3>Estoque de produtos químicos do ETE</h3>
+
+        <div class="pac">   
+            <div>Estoque de PAC: <input type="number" placeholder="Qtde" id="pac" name="pac"> Litros</div>
+            <div>Tanque1 <input type="number" placeholder="Valor" id="tanque1" name="tanque1"></div>
+            <div>Tanque2 <input type="number" placeholder="Valor" id="tanque2" name="tanque2"></div>
+            <div>Tanque3 <input type="number" placeholder="Valor" id="tanque3" name="tanque3"></div>
+        </div>
+
+        <div class="coluna">
+            <div>Estoque de Cloro: <input type="number" placeholder="Qtde" id="cloro" name="cloro"> Litros</div>
+            <div>Estoque de Soda: <input type="number" placeholder="Qtde" id="soda" name="soda"> Litros</div>
+            <div>Estoque de Sulfúrico: <input type="number" placeholder="Qtde" id="sulf" name="sulf"> Litros</div>
+            <div>Estoque de Polímero: <input type="number" placeholder="Qtde" id="pol" name="pol"> Kilos</div>
+            <div>Estoque de Sal: <input type="number" placeholder="Qtde" id="sal" name="sal"> Kilos</div>
+            <div>Estoque de Antiespumante: <input type="number" placeholder="Qtde" id="ant" name="ant"> Litros</div>
+        </div>
+
+        <h3>Estoque de produtos da Ilha Química</h3>
+        <div class="s">
+            <div>Estoque de Soda: <input type="text" placeholder="Qtde" id="ilhaSoda" name="ilhaSoda"> Litros</div> 
+            <div>Tanque1 <input type="number" placeholder="Valor" id="tanq1" name="tanq1"></div>
+            <div>Tanque2 <input type="number" placeholder="Valor" id="tanq2" name="tanq2"></div>
+        </div>
+
+        <div class="coluna">
+            <div>Estoque de Detergente: <input type="number" placeholder="Qtde" id="detergente" name="detergente"> Litros</div>
+            <div>Estoque de Peróxido: <input type="text" placeholder="Qtde" id="peroxido" name="peroxido"> Litros</div>
+            <div>Neutralizante1: <input type="number" placeholder="Qtde" id="neu1" name="neu1"> Litros</div>
+            <div>Neutralizante2: <input type="number" placeholder="Qtde" id="neu2" name="neu2"> Litros</div>
+       
+
+    
+            <div>Clareador: <input type="number" placeholder="Qtde" id="power" name="power"> Litros</div>
+            <div>Print: <button type="submit" id="PDF">PDF</button></div>
+         </div>
+        <label for="ob">Observação</label>
+        <textarea name="observacao" id="ob" cols="80" rows="10"></textarea>
+        <div>jose.siqueira@elis.com</div>
+    </div>
+</form>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    function updatePAC() {
+        let tanque1 = parseFloat(document.getElementById("tanque1").value) || 0;
+        let tanque2 = parseFloat(document.getElementById("tanque2").value) || 0;
+        let tanque3 = parseFloat(document.getElementById("tanque3").value) || 0;
+        let pac = tanque1+ tanque2 + tanque3;
+        document.getElementById("pac").value = pac;
+    }
+
+    document.getElementById("tanque1").addEventListener("input", updatePAC);
+    document.getElementById("tanque2").addEventListener("input", updatePAC);
+    document.getElementById("tanque3").addEventListener("input", updatePAC);
+
+    function updateSoda() {
+        let container1 = parseFloat(document.getElementById("tanq1").value) || 0;
+        let container2 = parseFloat(document.getElementById("tanq2").value) || 0;
+        let ilhaSoda = container1 + container2;
+        document.getElementById("ilhaSoda").value = ilhaSoda;
+    }
+
+    document.getElementById("tanq1").addEventListener("input", updateSoda);
+    document.getElementById("tanq2").addEventListener("input", updateSoda);
+});
+
+document.getElementById("PDF").addEventListener("click", function(event) {
+    event.preventDefault();
+    generatePDF();
+});
+
+
+async function generatePDF() {
+    const formData = new FormData(document.getElementById('myForm'));
+
+    // Cria um novo objeto para guardar os dados do formulário
+    const formValues = {};
+
+    // Preenche o objeto com os valores do formulário
+    formData.forEach((value, key) => {
+        formValues[key] = value;
+    });
+
+    // Define um tamanho de página personalizado
+    const pageWidth = 14; // inches (tamanho padrão 'letter') LARGURA
+    const pageHeight = 36; // inches ALTURA
+
+    // Usa html2pdf para converter o formulário preenchido em PDF
+    html2pdf().from(document.getElementById('myForm')).set({ 
+        margin: 1,
+        filename: `Relatorio_Semana_${formValues.semana}.pdf`,
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: [pageWidth, pageHeight], orientation: 'portrait' }
+    }).save();
+}
+
+
+
+</script>
+
+</body>
+</html>
+
