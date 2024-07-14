@@ -6,13 +6,13 @@
     <title>Grupo Elis</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+   
+    
 </head>
 <body>
 
 <form id="myForm">
-    <h1>Inventário de Produtos Químicos 2024 <img src="./image/imagem1.png" alt="Circular"></h1>
+    <h1>Inventário de Produtos Químicos 2024 <img src="./image/Imagem1.png" alt="Circular"></h1>
 
     <div class="container">  
         <div class="a">
@@ -89,9 +89,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.getElementById("PDF").addEventListener("click", function(event) {
     event.preventDefault();
+    console.log("PDF button clicked");
     generatePDF();
 });
-
 
 async function generatePDF() {
     const formData = new FormData(document.getElementById('myForm'));
@@ -105,19 +105,21 @@ async function generatePDF() {
     });
 
     // Define um tamanho de página personalizado
-    const pageWidth = 14; // inches (tamanho padrão 'letter') LARGURA
+    const pageWidth = 15; // inches (tamanho padrão 'letter') LARGURA
     const pageHeight = 36; // inches ALTURA
 
     // Usa html2pdf para converter o formulário preenchido em PDF
-    html2pdf().from(document.getElementById('myForm')).set({ 
+    html2pdf().from(document.body).set({ 
         margin: 1,
-        filename: `Relatorio_Semana_${formValues.semana}.pdf`,
+        filename: `Inventário_Semana_${formValues.semana}.pdf`,
         html2canvas: { scale: 2 },
         jsPDF: { unit: 'in', format: [pageWidth, pageHeight], orientation: 'portrait' }
     }).save();
+
 }
 
 
+        
 
 </script>
 
