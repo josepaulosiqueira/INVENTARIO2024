@@ -189,3 +189,49 @@ h3{
        
     }
 
+/* Reponsividade */
+
+/* Estilos para telas menores */
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 18px;
+        width: auto;
+    }
+    
+    img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .container, .pac, .coluna, .s {
+        width: auto;
+        padding: 5px;
+    }
+
+    input, select, textarea {
+        width: 90%;
+        padding: 8px;
+        margin: 5px 0;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+    }
+
+    .a, .coluna, .s {
+        grid-template-columns: 1fr;
+    }
+
+    #ob {
+        width: 100%; /* Ocupa toda a largura disponível */
+        max-width: 100%; /* Largura máxima ajustável */
+        padding: 10px; /* Espaçamento interno */
+        box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+        resize: vertical; /* Permite redimensionamento vertical */
+        font-size: 14px; /* Tamanho da fonte */
+        line-height: 1.5; /* Altura da linha para melhor legibilidade */
+    }
+    
+}
