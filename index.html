@@ -130,13 +130,13 @@ async function generatePDF() {
 
     // Detecta se é um dispositivo móvel (baseado na largura da tela)
     if (window.innerWidth <= 600) { // Exemplo: considera 600 pixels de largura como um limite para dispositivos móveis
-        pageWidth = 6; // Define um tamanho menor para telas menores (exemplo: 6 x 9 polegadas)
-        pageHeight = 9;
-        html2canvasScale = 2; // Reduz a escala para economizar espaço e processamento em dispositivos móveis
-    } else {
-        pageWidth = 8.5; // Tamanho padrão 'letter' para computadores (8.5 x 11 polegadas)
+        pageWidth = 8.5; // Define um tamanho menor para telas menores (exemplo: 6 x 9 polegadas)
         pageHeight = 11;
-        html2canvasScale = 3; // Aumenta a escala para melhor qualidade em computadores
+        html2canvasScale = 3; // Reduz a escala para economizar espaço e processamento em dispositivos móveis
+    } else {
+        pageWidth = 6; // Tamanho padrão 'letter' para computadores (8.5 x 11 polegadas)
+        pageHeight = 9;
+        html2canvasScale = 2; // Aumenta a escala para melhor qualidade em computadores
     }
 
     // Gera o PDF usando html2pdf
