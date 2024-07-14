@@ -93,63 +93,30 @@ document.getElementById("PDF").addEventListener("click", function(event) {
     generatePDF();
 });
 
-// async function generatePDF() {
-//     const formData = new FormData(document.getElementById('myForm'));
-
-//     // Cria um novo objeto para guardar os dados do formulário
-//     const formValues = {};
-
-//     // Preenche o objeto com os valores do formulário
-//     formData.forEach((value, key) => {
-//         formValues[key] = value;
-//     });
-
-//     // Define um tamanho de página personalizado
-//     const pageWidth = 15; // inches (tamanho padrão 'letter') LARGURA
-//     const pageHeight = 36; // inches ALTURA
-
-//     // Usa html2pdf para converter o formulário preenchido em PDF
-//     html2pdf().from(document.body).set({ 
-//         margin: 1,
-//         filename: `Inventário_Semana_${formValues.semana}.pdf`,
-//         html2canvas: { scale: 2 },
-//         jsPDF: { unit: 'in', format: [pageWidth, pageHeight], orientation: 'portrait' }
-//     }).save();
-
-// }
-
 async function generatePDF() {
     const formData = new FormData(document.getElementById('myForm'));
+
+    // Cria um novo objeto para guardar os dados do formulário
     const formValues = {};
 
+    // Preenche o objeto com os valores do formulário
     formData.forEach((value, key) => {
         formValues[key] = value;
     });
 
-    let pageWidth, pageHeight, html2canvasScale;
+    // Define um tamanho de página personalizado
+    const pageWidth = 15; // inches (tamanho padrão 'letter') LARGURA
+    const pageHeight = 36; // inches ALTURA
 
-    // Detecta se é um dispositivo móvel (baseado na largura da tela)
-    if (window.innerWidth <= 600) { // Exemplo: considera 600 pixels de largura como um limite para dispositivos móveis
-        pageWidth = 15; // Define um tamanho menor para telas menores (exemplo: 6 x 9 polegadas)
-        pageHeight = 36;
-        html2canvasScale = 2; // Reduz a escala para economizar espaço e processamento em dispositivos móveis
-    } else {
-        pageWidth = 15; // Tamanho padrão 'letter' para computadores (8.5 x 11 polegadas)
-        pageHeight = 36;
-        html2canvasScale = 2; // Aumenta a escala para melhor qualidade em computadores
-    }
-
-    // Gera o PDF usando html2pdf
+    // Usa html2pdf para converter o formulário preenchido em PDF
     html2pdf().from(document.body).set({ 
         margin: 1,
         filename: `Inventário_Semana_${formValues.semana}.pdf`,
-        html2canvas: { scale: html2canvasScale },
+        html2canvas: { scale: 2 },
         jsPDF: { unit: 'in', format: [pageWidth, pageHeight], orientation: 'portrait' }
     }).save();
+
 }
-
-
-        
 
 </script>
 
