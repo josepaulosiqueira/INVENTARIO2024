@@ -231,7 +231,7 @@ h3{
         box-sizing: border-box; /* Garante que o padding não aumente a largura total */
         resize: vertical; /* Permite redimensionamento vertical */
         font-size: 14px; /* Tamanho da fonte */
-        line-height: 1.5; /* Altura da linha para melhor legibilidade */
+        line-height: 1.5; 
     }
     
 }
